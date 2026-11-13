@@ -1,37 +1,50 @@
-# Instaffo Design System (simplified)
+# Instaffo Design Foundations
 
-A short version of the design system we use at Instaffo. It covers the judgment we apply when we design and build UI. It doesn't depend on a framework: use it with any stack.
+This is the entry point to Instaffo's design system for the take-home challenge. It is a trimmed version of what our product teams work with.
 
-| File | Use it for |
-| --- | --- |
-| [`FOUNDATIONS.md`](./FOUNDATIONS.md) | Colour, spacing, radii, borders, typography, icons, states, motion |
-| [`tokens.css`](./tokens.css) | The token values as CSS custom properties |
-| This file | Voice and tone for every user-facing string |
+We don't ship our component library with this repo. Use any stack you like. Take the decisions below as the rules a reviewer at Instaffo would apply to your flow. If you break one on purpose, say why in `DECISIONS.md`.
 
-## Product surfaces
+| File                                 | Read it before…                                                                                   |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------ |
+| [`FOUNDATIONS.md`](./FOUNDATIONS.md) | Picking a color, a spacing value, a corner radius, a text style, an icon, a hover or focus state. |
+| [`tokens.css`](./tokens.css)         | The token values as CSS custom properties.                                                        |
+| This file                            | Writing any text the candidate sees.                                                              |
 
-Instaffo has a candidate-facing app and a recruiter-facing app. Both use brand purple (`primary-*`) as their accent colour. Don't paint customer-facing UI blue.
+## Who you design for
+
+Instaffo has two customer-facing surfaces:
+
+- **Talent app**: what candidates use. The application question flow lives here.
+- **Company app**: what recruiters use. They write the questions you render.
+
+Both use the brand purple as their accent (`primary-*` in `FOUNDATIONS.md`). Don't use blue in either. Blue belongs to our internal tools only.
+
+On Instaffo, candidates are called **Talent** in English (also in the plural: _1,000 Talent_) and **Talente** in German, not _Bewerber_ or _Kandidaten_. "Talents" with an s means skills, never people.
 
 ## Voice and tone
 
-Apply these to every string: buttons, headings, labels, errors, empty states.
+Our voice is **relatable, encouraging and inclusive**. In UI text this means:
 
-- **German-first.** Every string exists in German and English. Don't hard-code one language.
-- **Second person:** `du` / `dein` in German, `you` / `your` in English. Never `Sie`. Don't use "we" when talking about the candidate's own data: _your_ profile, _your_ answers.
-- **Sentence case** for buttons, headings and labels: _Save_, _Your profile_. Never ALL CAPS or Title Case.
-- **Short sentences:** about 15–20 words at most. One thought per sentence.
-- **Same concept, same word.** Pick one term and use it everywhere.
-- **Use names when you know them.** "Message Anna" beats "Message the talent". At most twice per component.
-- **"Talent"** is what we call a candidate, in the singular.
-- **Active form.** "Wir berücksichtigen deine Gehaltsvorstellung" beats "Deine Gehaltsvorstellung wird berücksichtigt".
-- **Positive phrasing.** Look for "can't", "don't" and "not" and try to flip them.
-- **No emoji in UI.** Emoji only appear in content people write themselves.
-- **No exclamation marks** in default copy. Save them for real celebration moments.
-- **No abbreviations**, and no technical-sounding compound words. "Bevorzugter Arbeitsort" beats "Arbeitsort-Präferenz".
-- **Errors say what's wrong and how to fix it.** Never just "Invalid input". Don't blame the user.
+- **Address the candidate directly.** German: always `du` / `dein`, never `Sie`. English: `you` / `your`.
+- **Sentence case** for buttons, headings and labels: _Send application_, not _Send Application_. Never all caps.
+- **Short sentences.** One thought per sentence, at most 15 to 20 words.
+- **Active, positive phrasing.** _Wir berücksichtigen deine Gehaltsvorstellung_ beats _Deine Gehaltsvorstellung wird berücksichtigt_. Look for `can't`, `don't`, `not` and try to flip them.
+- **Say what to do, not what went wrong.** _Enter a number between 0 and 50_ beats _Invalid input_.
+- **Same thing, same word.** Pick _Send application_ or _Apply_ once and use it everywhere.
+- **No abbreviations, no technical compound words.** _Bevorzugter Arbeitsort_ beats _Arbeitsort-Präferenz_. _evtl._, _ggf._ and _z.B._ are out.
+- **Gender-inclusive German.** Prefer direct address (`du`) or neutral words (_Talente_, _Unternehmen_, _Team_). The colon form (_Mitarbeiter:innen_) is a last resort.
+- **No emoji in UI chrome**: buttons, labels, alerts, badges. No exclamation marks, except for a real moment of celebration.
 
-### English
+### English specifics
 
-- British English: _colour_, _realise_, _centre_.
-- Short forms by default: _you'll_, _it's_.
-- Numbers: `1,000`, `2.1%`, `€7,000` (currency first, no space).
+- American English: _color_, _realize_.
+- Contractions by default: _you'll_, _it's_, _we're_.
+- Numbers: `1,000`, `2.1%`, `€7,000` (currency before the number, no space).
+
+### German specifics
+
+- Numbers: `1.000`, `2,1 %`.
+
+## Languages
+
+German comes first. Every string you write needs a German and an English version. Recruiters write their questions in one language (`language` in the job config), and that language is not always the one the candidate uses. How you handle that is your call.

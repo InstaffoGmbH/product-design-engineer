@@ -1,37 +1,45 @@
-/* Instaffo design tokens (simplified). 1rem = 10px. */
-/* TBD: values marked TBD still need to be filled in from the design system before this goes out. */
+/* Instaffo design tokens (simplified). 1rem = 10px. See FOUNDATIONS.md for when to use which. */
 
 :root {
   font-size: 62.5%; /* 1rem = 10px */
 
-  /* Colour: primary (brand purple, interactive only) */
-  /* --primary-50: TBD; */
-  /* --primary-100: TBD; */
-  /* --primary-200: TBD; */
-  --primary-300: #431d60;
-  /* --primary-400: TBD; */
+  /* Color: primary (brand purple, interactive only) */
+  --primary-50: #faf3ff; /* hover on ghost and secondary actions */
+  --primary-100: #e2bdff;
+  --primary-200: #8951b5; /* press ring */
+  --primary-300: #5e2f82; /* primary actions, links */
+  --primary-400: #431d60; /* hover on primary actions */
 
-  /* Colour: brand (decorative pastels) */
-  /* --brand-100: TBD; */
-  /* --brand-200: TBD; */
+  /* Color: brand (decorative pastels) */
+  --brand-100: #e6e0ff; /* lavender */
+  --brand-200: #e7ffc0; /* pale green, positive contexts only */
 
-  /* Colour: neutrals (backgrounds, surfaces, borders, icon fills) */
-  --neutrals-0: #fff;
-  --neutrals-100: #f5f5f7;
-  /* --neutrals-200: TBD; */
+  /* Color: neutrals (backgrounds, surfaces, borders, icon fills) */
+  --neutrals-0: #fff; /* surfaces */
+  --neutrals-100: #f5f5f7; /* page background */
+  --neutrals-200: #d3d4d6; /* default borders and dividers */
   --neutrals-300: #7a7c84;
   --neutrals-400: #3e4242;
 
-  /* Colour: text */
-  --text-0: #fff;
-  --text-100: #7a7c84;
-  --text-200: #3e4242;
+  /* Color: text */
+  --text-0: #fff; /* text on colored fills */
+  --text-100: #7a7c84; /* placeholder, disabled */
+  --text-200: #3e4242; /* default text */
   --text-300: #222222;
 
-  /* Colour: signals */
-  /* --success-100: TBD; --success-200: TBD; --success-300: TBD; */
-  /* --warning-100: TBD; --warning-200: TBD; --warning-300: TBD; */
-  /* --danger-100: TBD;  --danger-200: TBD;  --danger-300: TBD; */
+  /* Color: signals */
+  --success-100: #dcf8db;
+  --success-200: #219653;
+  --success-300: #145931;
+  --warning-100: #fff5cd;
+  --warning-200: #ffc000;
+  --warning-300: #664d00;
+  --danger-100: #ffe8e9;
+  --danger-200: #ed1c27;
+  --danger-300: #991219;
+  --utility-100: #ffc4a8; /* reserved for system-level signals */
+  --utility-200: #ff6922;
+  --utility-300: #662a0e;
 
   /* Spacing */
   --space-2: 0.2rem;
@@ -43,6 +51,7 @@
   --space-32: 3.2rem;
   --space-40: 4rem;
   --space-48: 4.8rem;
+  --space-56: 5.6rem;
   --space-64: 6.4rem;
 
   /* Radii */
@@ -58,18 +67,23 @@
   --border-error: 0.15rem;
 
   /* Shadows (warm, never cool) */
-  /* --shadow-panel: 1.5rem 1.5rem 4rem TBD; */
+  --shadow-panel: 1.5rem 1.5rem 4rem 0 rgba(199, 195, 195, 0.4);
+  --shadow-filter: 0 0.4rem 1rem rgba(122, 124, 132, 0.3);
+  --shadow-toggle: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
 
   /* Typography */
-  --font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-family: "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif;
   --font-weight-regular: 400;
   --font-weight-bold: 500; /* "bold" is medium by convention */
-  --text-body-s: 1.2rem / 1.6rem;
-  --text-body-base: 1.4rem / 2rem;
-  --text-body-m: 1.6rem / 2.4rem;
-  --text-body-l: 1.8rem / 2.4rem;
-  /* --text-title-m: TBD; --text-title-l: TBD; */
-  /* --text-display-m: TBD; --text-display-l: TBD; */
+  --letter-spacing: 0.025rem;
+  --text-display-l: 500 4rem / 4.8rem var(--font-family);
+  --text-display-m: 500 3.2rem / 4rem var(--font-family);
+  --text-title-l: 500 2.4rem / 3.2rem var(--font-family);
+  --text-title-m: 500 2rem / 2.8rem var(--font-family);
+  --text-body-l: 500 1.8rem / 2.4rem var(--font-family);
+  --text-body-m: 400 1.6rem / 2.4rem var(--font-family);
+  --text-body-base: 400 1.4rem / 2rem var(--font-family);
+  --text-body-s: 500 1.2rem / 1.6rem var(--font-family);
 
   /* Motion */
   --transition-button: all 0.3s ease;

@@ -1,8 +1,16 @@
 # Instaffo Senior Product Design Engineer: Take-Home Challenge
 
-Mock data for the take-home challenge. Everything here is sample data, not real Instaffo data.
+Mock data for the take-home challenge. **Start with the brief:** [Take-home challenge brief](https://docs.google.com/document/d/1vdAW9esHYAB-Y9Yw277cfglBVf7c7VeA7GPnzGOpBzY/edit)
 
-Sample analytics and feedback from a similar flow are in `data/`.
+Everything here is sample data, not real Instaffo data.
+
+| File                                                 | What it is                                                              |
+| :--------------------------------------------------- | :---------------------------------------------------------------------- |
+| `README.md`                                          | This file: question schema, answer format, screening rules              |
+| `profile.json`                                       | What Instaffo already knows about the candidate                         |
+| `jobs/short.json`, `jobs/long.json`, `jobs/bad.json` | Three job configs                                                       |
+| `DESIGN.md`, `FOUNDATIONS.md`, `tokens.css`          | Our design foundations: voice and tone, tokens. Start with `DESIGN.md`. |
+| `data/`                                              | Sample analytics and feedback from a similar flow                       |
 
 ## Job config
 
@@ -103,8 +111,8 @@ The example mixes questions from several jobs to show every value shape.
       "id": "cover_letter",
       "value": {
         "content_type": "application/pdf",
-        "data": "JVBERi0xLjcK...",
-        "file_name": "cover_letter.pdf"
+        "file_name": "cover_letter.pdf",
+        "size_bytes": 48211
       }
     }
   ],
@@ -114,7 +122,7 @@ The example mixes questions from several jobs to show every value shape.
 
 - Multi-select answers use `values` (array). All other answers use `value`.
 - Numbers and booleans are JSON numbers and booleans, not strings.
-- Files: `data` is the base64-encoded file content. Accept PDF, DOCX, PNG and JPG up to 5 MB.
+- Files: the payload holds the file's details, not its content. `size_bytes` is the file size in bytes. Accept PDF, DOCX, PNG and JPG up to 5 MB.
 - Answers taken from the profile are part of the payload like any other answer.
 - Leave out optional questions that have no answer.
 - `screening.failed` lists the IDs of all questions whose rule failed. `passed` is `true` when the list is empty.

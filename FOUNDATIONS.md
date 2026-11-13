@@ -1,117 +1,161 @@
 # Foundations
 
-Theme-level rules: colour, spacing, radii, borders, shadows, typography, icons, states and motion. Token values live in [`tokens.css`](./tokens.css). Use the tokens; never invent raw colours, sizes or font sizes.
+The theme-level rules: color, spacing, radii, borders, shadows, typography, icons, states and motion. Use the token names below in your code (as CSS custom properties, theme values or whatever your stack uses). Don't write raw hex values, off-scale sizes or one-off font sizes in components.
 
-## Colour
+## Color
 
-Pick a colour family by intent, not by looks.
+Pick a color by what it means, not by how it looks.
 
-| Family | Intent |
-| --- | --- |
-| `primary-*` (brand purple) | **Interactive elements only:** buttons, links, focus rings, clickable icons |
-| `brand-*` (pastels) | **Decoration** on non-interactive surfaces. Hue still carries meaning: green only in positive contexts |
-| `neutrals-*` | Backgrounds, surfaces, dividers, borders, icon fills |
-| `text-*` | Neutral text. `text-200` / `text-300` for normal text, `text-100` only for placeholder and disabled text, `text-0` for white text on colour |
-| `danger-*` | Destructive or irreversible actions, and critical errors. One red moment per view |
-| `success-*` | Positive confirmation. Understated, not celebration |
-| `warning-*` | Something missing, incomplete or expiring that the user can still get past. Prefer it over `danger-*` when nothing is destructive |
+| Family       | Intent                                                                                                                                                                       |
+| :----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `primary-*`  | **Interactive elements only**: buttons, links, focus rings, selected options, clickable icons. Purple on static text teaches people it's clickable.                          |
+| `brand-*`    | **Decorative accents** on non-interactive surfaces: accent tags, atmospheric backgrounds. Green only in positive contexts.                                                   |
+| `neutrals-*` | Backgrounds and structure: page background, cards, dividers, borders, icon fills.                                                                                            |
+| `text-*`     | Neutral text. `text-200` / `text-300` for normal text. `text-100` only for placeholders and disabled text, never for content (it fails contrast). `text-0` on colored fills. |
+| `danger-*`   | **Errors and destructive actions only.** One red moment per view. Not for "you can still continue" cases; that's `warning-*`.                                                |
+| `success-*`  | **Positive confirmation**: "you did the right thing, keep going". Understated, not celebratory.                                                                              |
+| `warning-*`  | **Non-blocking attention**: something is missing, incomplete or about to expire, and the person can still continue.                                                          |
+| `utility-*`  | Orange. Reserved for system-level signals.                                                                                                                                   |
 
-Rules:
+### Tokens
 
-- **Tokens only.** No raw hex, `rgb()` or named colours. `transparent` and `currentColor` are fine.
-- **One coloured moment per signal per view.** If a red button carries the signal, don't add a red badge, icon and border too.
-- **Action ≠ accent.** `primary-*` tells people something is clickable. Don't use it on static text or surfaces.
-- **Text that carries a signal takes the signal's colour:** errors `danger-*`, warnings `warning-300`, confirmations `success-*`, links `primary-300`. Everything else uses `text-*`.
-- **Icons take their colour from `neutrals-*`**, never from `text-*`.
-- **App background** is `neutrals-100`, a warm off-white. Surfaces and cards are `neutrals-0` (white).
+All values are in [`tokens.css`](./tokens.css). Import it or copy the values into your stack.
+
+### Rules
+
+- **Every color comes from a token.** Text, backgrounds, borders, shadows and SVG fills too. `transparent` and `currentColor` are the only literals allowed. If no token fits, that's a design decision: write it down in `DECISIONS.md`.
+- **One colored moment per signal per view.** If a field is in an error state, don't add a red icon, a red border and a red banner. Pick the element that carries the message and keep the rest neutral.
+- **Text with a signal takes that signal's color.** Errors `danger-200` / `danger-300`, warnings `warning-300`, confirmations `success-200` / `success-300`, links `primary-300`. All other text uses `text-*`.
+- **Icons use `neutrals-*`, never `text-*`**, even when they inherit their color through `currentColor`. `text-300` has no neutrals equivalent, so icons never use it.
+- **Translucent colors** are a token with an alpha channel (for example `--neutrals-400` at 10%). Don't invent new colors with `darken()` or similar.
 
 ### Contrast
 
-WCAG 2.2 AA at minimum: 4.5:1 for body text, 3:1 for large text, icons, meaningful borders and focus rings. Aim for AAA (7:1) on anything a user must read to decide, such as errors and the main call to action.
+WCAG 2.2:
+
+- **AA minimum**: 4.5:1 for body text, 3:1 for large text, 3:1 for icons, meaningful borders and focus rings.
+- **AAA target** on critical UI: error states, primary buttons, anything a person must read to decide. 7:1 for body text, 4.5:1 for large text.
+- When in doubt, use `text-300` instead of `text-200`, and a solid `neutrals-0` surface instead of a translucent one.
 
 ## Spacing
 
-All sizes use one scale (`1rem = 10px`):
+One scale for every size: padding, gap, margin, icon boxes, focus-ring thickness.
 
-- **Small steps:** `0.2rem`, `0.4rem`, `0.8rem`, `1.2rem` (2 / 4 / 8 / 12 px).
-- **Beyond that:** multiples of `0.8rem`: `1.6rem`, `2.4rem`, `3.2rem`, `4rem`, `4.8rem` and so on.
+- **Small steps:** 2, 4, 8, 12 px.
+- **Above 12 px:** multiples of 8: 16, 24, 32, 40, 48, 56, 64 px.
 
-No off-scale values (`0.5rem`, `1rem`, `2rem`). Round to the nearest step.
+Nothing else. No 5, 10, 15 or 20 px. If a value doesn't fit, round to the nearest step.
 
-| Typical use | Value |
-| --- | --- |
-| Hairline, focus-ring thickness | `0.2rem` |
-| Icon-to-text gap | `0.4rem` |
-| Tag inner padding | `0.8rem` |
-| Form-field padding | `1.2rem` |
-| Card padding | `1.6rem`–`2.4rem` |
-| Section spacing | `2.4rem`–`4rem` |
-| Page rhythm | `4.8rem`+ |
+| Typical use                        | Value        |
+| :--------------------------------- | :----------- |
+| Hairline divider, focus-ring width | 2 px         |
+| Gap between an icon and its label  | 4 px         |
+| Padding inside a tag or chip       | 8 px         |
+| Padding inside a form field        | 12 px        |
+| Card and panel padding             | 16 to 24 px  |
+| Section spacing, dialog padding    | 24 to 40 px  |
+| Page-level rhythm                  | 48 px and up |
+
+Our codebase sets `1rem = 10px`, so `0.8rem` is 8 px. Use px, rem or whatever your stack prefers, as long as the values land on the scale.
 
 ## Corner radii
 
-Small interactive elements feel tight; containers feel friendly. No values in between.
+Two tiers: small interactive elements are tight, containers are friendly. The jump from 8 to 20 px is deliberate.
 
-| Radius | Use it on |
-| --- | --- |
-| `0.4rem` | Checkboxes |
-| `0.8rem` | Buttons, inputs, alerts, tags |
-| `1.2rem` | Badges |
-| `2rem` | Cards, panels, chips |
-| `9999px` | Status dots |
+| Radius    | Use it on                                       |
+| :-------- | :---------------------------------------------- |
+| 4 px      | Checkboxes only                                 |
+| 8 px      | Buttons, inputs, alerts, tags. The most common. |
+| 12 px     | Badges                                          |
+| 20 px     | Panels, cards, chips, company logos             |
+| full pill | Status dots, notification dots                  |
 
 ## Borders
 
-| Border | Use it for |
-| --- | --- |
-| `0.1rem` solid `neutrals-200` / `neutrals-300` | Default: inputs, dividers |
-| `0.2rem` | Buttons |
-| `0.15rem` `danger-200` | Error state on form fields |
+| Border                                     | Use it for                                                               |
+| :----------------------------------------- | :----------------------------------------------------------------------- |
+| 1 px solid `neutrals-200` / `neutrals-300` | Default: input borders, dividers, card borders                           |
+| 2 px                                       | Buttons, so the border and the fill don't blur together                  |
+| 1.5 px `danger-200`                        | Form fields in an error state. Slightly thicker so it reads at a glance. |
 
-No other widths. For more emphasis, raise the border's contrast instead.
+No other widths. If something needs more emphasis than 1 px, raise the border color's contrast.
 
 ## Shadows
 
-Shadows are warm, never cool or blue. Cards that need to read as elevated use the large, soft panel shadow (`--shadow-panel`). Don't author one-off shadows, and don't put a shadow on every card.
+Shadows are warm gray, never cool or blue.
 
-## Typography
+| Name     | Value                                       | Use it for                                                                       |
+| :------- | :------------------------------------------ | :------------------------------------------------------------------------------- |
+| `panel`  | `15px 15px 40px 0 rgba(199, 195, 195, 0.4)` | Cards and panels that must read as elevated. A designed glow, not a subtle lift. |
+| `filter` | `0 4px 10px rgba(122, 124, 132, 0.3)`       | Dropdown menus and popovers                                                      |
+| `toggle` | `0 2px 4px rgba(0, 0, 0, 0.25)`             | The knob of a toggle switch                                                      |
 
-**Brand font:** our brand typeface is licensed, so it isn't included. Use the fallback stack: `Arial, "Helvetica Neue", Helvetica, sans-serif`.
+Don't add one-off shadows.
 
-| Style | Size / line height | Use it for |
-| --- | --- | --- |
-| `body-base` | 14/20 | **Default** for interface text: buttons, inputs, labels |
-| `body-m` | 16/24 | Prose, paragraphs |
-| `body-l` | 18/24 | Lead paragraphs |
-| `body-s` | 12/16 | Metadata, captions, hints. Never primary content |
-| `title-m`, `title-l` | see `tokens.css` | Section and card headings |
-| `display-m`, `display-l` | see `tokens.css` | Hero titles only, rarely in product UI |
+## Backgrounds, gradients, transparency
 
-- **Weights:** 400 for body text. What we call "bold" is 500 (medium). 700 rarely.
-- Don't introduce new sizes, weights or families.
-
-## Icons
-
-Use Material Symbols:
-
-- **Rounded** variant, **weight 300**, **fill off** (outlined).
-- Filled only for the active state of a toggle icon (favourite, save).
-- Size **24px** by default, **20px** in dense places. **Never smaller than 20px.**
-- Every icon-only button has an accessible label.
+- **Page background:** `neutrals-100`, a warm off-white. **Surfaces:** `neutrals-0`.
+- **No full-bleed photos, illustrations, patterns or textures.** Photos only appear as profile pictures and company logos.
+- **Atmospheric gradients**, for hero and empty-state backgrounds only: `linear-gradient(180deg, var(--neutrals-100) 0%, <pastel> 200%)`, where the pastel is `brand-100` (purple), `brand-200` (green), `warning-100` (yellow) or `danger-100` (red). Never on buttons, chips, tags or other small UI. Never stack two gradients.
+- **No `backdrop-filter` blur.**
+- **Opacity** only for alpha tints in tokens and for disabled elements (0.6). Don't use it to fade content; use a lighter `text-*` token.
 
 ## Interactive states
 
-| State | Treatment |
-| --- | --- |
-| Hover | Primary fill goes one shade darker (`primary-300` → `primary-400`). Ghost and secondary elements get a light tint (`primary-50`). Never use opacity as a hover effect |
-| Pressed | A 2px ring in `primary-200`. No scaling or movement |
-| Focus | Keyboard only (`:focus-visible`): 2px outline in the element's border colour, 2px offset |
-| Disabled | Opacity 0.6, background `neutrals-100`, text `text-100`, `cursor: not-allowed` |
+| State              | Treatment                                                                                                                                                       |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Hover**          | Primary actions: a darker shade of the same hue (`primary-300` → `primary-400`). Ghost and secondary: a light tint (transparent → `primary-50`). Never opacity. |
+| **Press / active** | A 2 px `box-shadow` ring in `primary-200`. No `transform` or `scale`: the element stays in place.                                                               |
+| **Focus**          | 2 px solid outline in the element's own border color, offset 2 px. Keyboard only (`:focus-visible`).                                                            |
+| **Disabled**       | `opacity: 0.6`, background `neutrals-100`, text `text-100`, `cursor: not-allowed`.                                                                              |
+| **Error**          | 1.5 px `danger-200` border plus a message below the field in `danger-200` / `danger-300`.                                                                       |
 
 ## Motion
 
-Functional, never decorative. Hover transitions: 0.3s ease on buttons, 0.2s ease on chips and tags. No springs, bounces, scale on hover or elaborate entrance animations.
+Motion explains what happened. It never decorates.
 
-## Gradients and imagery
+| Use                     | Duration and easing |
+| :---------------------- | :------------------ |
+| Hover on buttons        | `0.3s ease`         |
+| Hover on chips and tags | `0.2s ease`         |
 
-Don't invent gradients, and never put one on a button, chip or tag. No illustrations, patterns or textures. Photos only appear as profile pictures and company logos.
+No springs, bounces, `scale()` on hover or elaborate enter and exit animations.
+
+## Typography
+
+**Font.** Our brand font is Aeonik Pro. Its licence doesn't let us share it, so use [Manrope](https://fonts.google.com/specimen/Manrope) instead (free, SIL Open Font License). It's close to Aeonik in width and shape.
+
+```css
+font-family: var(
+  --font-family
+); /* "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif */
+letter-spacing: var(--letter-spacing);
+color: var(--text-200);
+```
+
+**Weights.** Two in product UI: 400 (regular) and 500. Our "bold" is 500, not 700.
+
+| Style       | Size / line height | Weight | Use it for                                                                             |
+| :---------- | :----------------- | :----- | :------------------------------------------------------------------------------------- |
+| `display-l` | 40 / 48            | 500    | Hero titles. Rarely inside the product.                                                |
+| `display-m` | 32 / 40            | 500    | Hero titles. Rarely inside the product.                                                |
+| `title-l`   | 24 / 32            | 500    | Page and section headings                                                              |
+| `title-m`   | 20 / 28            | 500    | Panel headings, question titles                                                        |
+| `body-l`    | 18 / 24            | 500    | Lead text, high-density info cards                                                     |
+| `body-m`    | 16 / 24            | 400    | Prose: paragraphs, longer explanations                                                 |
+| `body-base` | 14 / 20            | 400    | **The default for interface text**: buttons, inputs, labels, options, most inline text |
+| `body-s`    | 12 / 16            | 500    | Metadata, captions, hints. Never the main content.                                     |
+
+Any body style can switch to 500 for emphasis. Don't add other sizes or weights.
+
+## Icons
+
+Use **Material Symbols Rounded** (free from Google Fonts):
+
+- **Style:** rounded. Not outlined, not sharp.
+- **Weight:** 300.
+- **Fill:** off. A filled glyph only shows the selected state of a toggle (favorite, save).
+- **Size:** 24 px by default, 20 px in dense spots (chips, tags, small icon buttons). Never smaller than 20 px.
+- **Color:** `neutrals-*` (see Color above).
+
+Every icon-only button needs an accessible name (`aria-label`).
