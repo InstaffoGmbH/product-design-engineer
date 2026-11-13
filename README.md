@@ -1,6 +1,8 @@
-# Instaffo Product Engineer: Test Task
+# Instaffo Senior Product Design Engineer: Take-Home Challenge
 
-Mock data for the test task. The brief: https://docs.google.com/document/d/16fWdqCyH1Tm4HBOd8qT80u0IsTmiFkrE-fQLQcv8DP0/edit
+Mock data for the take-home challenge. Everything here is sample data, not real Instaffo data.
+
+Sample analytics and feedback from a similar flow are in `data/`.
 
 ## Job config
 
