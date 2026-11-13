@@ -1,0 +1,9 @@
+step,times_shown,left_at_this_step,median_seconds_on_step,share_prefilled_from_profile
+before_first_question,8700,880,,
+select,9800,196,6,0.48
+boolean,4100,82,4,0.00
+date,1200,48,9,0.00
+numeric,5400,270,11,0.61
+text_single_line,2900,145,28,0.00
+text_multiline,1640,213,95,0.00
+file_upload,410,66,48,0.00
