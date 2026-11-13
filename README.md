@@ -2,13 +2,13 @@
 
 Mock data and design foundations for the take-home challenge. Everything here is sample data, not real Instaffo data.
 
-| File                                                 | What it is                                                                               |
-| :--------------------------------------------------- | :--------------------------------------------------------------------------------------- |
-| `README.md`                                          | This file: question schema, answer format, screening rules                               |
-| `profile.json`                                       | What Instaffo already knows about the candidate                                          |
-| `jobs/short.json`, `jobs/long.json`, `jobs/bad.json` | Three job configs                                                                        |
-| `DESIGN.md`, `FOUNDATIONS.md`, `COMPONENTS.md`       | Our design foundations: voice and tone, tokens, component usage. Start with `DESIGN.md`. |
-| `data/`                                              | Sample analytics and feedback from a similar flow                                        |
+| File                                                 | What it is                                                              |
+| :--------------------------------------------------- | :---------------------------------------------------------------------- |
+| `README.md`                                          | This file: question schema, answer format, screening rules              |
+| `profile.json`                                       | What Instaffo already knows about the candidate                         |
+| `jobs/short.json`, `jobs/long.json`, `jobs/bad.json` | Three job configs                                                       |
+| `DESIGN.md`, `FOUNDATIONS.md`                        | Our design foundations: voice and tone, tokens. Start with `DESIGN.md`. |
+| `data/`                                              | Sample analytics and feedback from a similar flow                       |
 
 ## Job config
 

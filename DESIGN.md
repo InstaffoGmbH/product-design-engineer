@@ -4,11 +4,10 @@ This is the entry point to Instaffo's design system for the take-home challenge.
 
 We don't ship our component library with this repo. Use any stack you like. Take the decisions below as the rules a reviewer at Instaffo would apply to your flow. If you break one on purpose, say why in `DECISIONS.md`.
 
-| File                                 | Read it before…                                                                                    |
-| :----------------------------------- | :------------------------------------------------------------------------------------------------- |
-| [`FOUNDATIONS.md`](./FOUNDATIONS.md) | Picking a colour, a spacing value, a corner radius, a text style, an icon, a hover or focus state. |
-| [`COMPONENTS.md`](./COMPONENTS.md)   | Reaching for a button, field, alert, dialog, progress indicator or container.                      |
-| This file                            | Writing any text the candidate sees.                                                               |
+| File                                 | Read it before…                                                                                   |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------ |
+| [`FOUNDATIONS.md`](./FOUNDATIONS.md) | Picking a color, a spacing value, a corner radius, a text style, an icon, a hover or focus state. |
+| This file                            | Writing any text the candidate sees.                                                              |
 
 ## Who you design for
 
