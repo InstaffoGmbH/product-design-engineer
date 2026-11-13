@@ -161,10 +161,10 @@ No springs, bounces, `scale()` on hover or elaborate enter and exit animations.
 
 ## Typography
 
-**Font.** Our brand font is Aeonik Pro, a licensed font. You don't have a licence for it, so use the fallback stack below or a free sans-serif with a similar geometric, warm character, and note your choice.
+**Font.** Our brand font is Aeonik Pro. Its licence doesn't let us share it, so use [Manrope](https://fonts.google.com/specimen/Manrope) instead (free, SIL Open Font License). It's close to Aeonik in width and shape.
 
 ```css
-font-family: "Aeonik Pro", Arial, "Helvetica Neue", Helvetica, sans-serif;
+font-family: "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif;
 letter-spacing: 0.25px;
 color: var(--text-200);
 ```
