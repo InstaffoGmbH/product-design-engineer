@@ -111,8 +111,8 @@ The example mixes questions from several jobs to show every value shape.
       "id": "cover_letter",
       "value": {
         "content_type": "application/pdf",
-        "data": "JVBERi0xLjcK...",
-        "file_name": "cover_letter.pdf"
+        "file_name": "cover_letter.pdf",
+        "size_bytes": 48211
       }
     }
   ],
@@ -122,7 +122,7 @@ The example mixes questions from several jobs to show every value shape.
 
 - Multi-select answers use `values` (array). All other answers use `value`.
 - Numbers and booleans are JSON numbers and booleans, not strings.
-- Files: `data` is the base64-encoded file content. Accept PDF, DOCX, PNG and JPG up to 5 MB.
+- Files: the payload holds the file's details, not its content. `size_bytes` is the file size in bytes. Accept PDF, DOCX, PNG and JPG up to 5 MB.
 - Answers taken from the profile are part of the payload like any other answer.
 - Leave out optional questions that have no answer.
 - `screening.failed` lists the IDs of all questions whose rule failed. `passed` is `true` when the list is empty.
