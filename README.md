@@ -1,6 +1,6 @@
 # Instaffo Senior Product Design Engineer: Take-Home Challenge
 
-Mock data for the take-home challenge. The brief: https://docs.google.com/document/d/1vdAW9esHYAB-Y9Yw277cfglBVf7c7VeA7GPnzGOpBzY/edit
+Mock data for the take-home challenge. **Start with the brief:** [Take-home challenge brief](https://docs.google.com/document/d/1vdAW9esHYAB-Y9Yw277cfglBVf7c7VeA7GPnzGOpBzY/edit)
 
 Everything here is sample data, not real Instaffo data.
 
