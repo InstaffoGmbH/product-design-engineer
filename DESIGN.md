@@ -5,7 +5,6 @@ A short version of the design system we use at Instaffo. It covers the judgment 
 | File | Use it for |
 | --- | --- |
 | [`FOUNDATIONS.md`](./FOUNDATIONS.md) | Colour, spacing, radii, borders, typography, icons, states, motion |
-| [`COMPONENTS.md`](./COMPONENTS.md) | When to use which basic component, and what to avoid |
 | [`tokens.css`](./tokens.css) | The token values as CSS custom properties |
 | This file | Voice and tone for every user-facing string |
 
