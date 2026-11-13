@@ -4,13 +4,14 @@ Mock data for the take-home challenge. **Start with the brief:** [Take-home chal
 
 Everything here is sample data, not real Instaffo data.
 
-| File                                                 | What it is                                                              |
-| :--------------------------------------------------- | :---------------------------------------------------------------------- |
-| `README.md`                                          | This file: question schema, answer format, screening rules              |
-| `profile.json`                                       | What Instaffo already knows about the candidate                         |
-| `jobs/short.json`, `jobs/long.json`, `jobs/bad.json` | Three job configs                                                       |
-| `DESIGN.md`, `FOUNDATIONS.md`, `tokens.css`          | Our design foundations: voice and tone, tokens. Start with `DESIGN.md`. |
-| `data/`                                              | Sample analytics and feedback from a similar flow                       |
+| File                                        | What it is                                                                                                          |
+| :------------------------------------------ | :------------------------------------------------------------------------------------------------------------------ |
+| `README.md`                                 | This file: question schema, answer format, screening rules                                                          |
+| `profile.json`                              | What Instaffo already knows about the candidate                                                                     |
+| `jobs/short.json`, `jobs/long.json`         | The two job configs you build for                                                                                   |
+| `jobs/bad.json`                             | A messy config, as recruiters sometimes write them. Don't build it. Document how you'd handle it in `DECISIONS.md`. |
+| `DESIGN.md`, `FOUNDATIONS.md`, `tokens.css` | Our design foundations: voice and tone, tokens. Start with `DESIGN.md`.                                             |
+| `data/`                                     | Sample analytics and feedback from a similar flow                                                                   |
 
 ## Job config
 
@@ -89,13 +90,15 @@ The rule value is the threshold for the numeric rules and `true` for `must_be_tr
 
 ## Validation
 
-Job configs are written by recruiters and are not always clean.
+Job configs are written by recruiters and are not always clean. `jobs/bad.json` breaks these rules on purpose. You don't need to build for it: in `DECISIONS.md`, write which problems you see and how you'd solve them.
 
 - Question IDs must be unique. On duplicates, only the first question counts.
 - A screening rule on a type it is not allowed on is ignored.
 - A question with an unknown `type` is ignored.
 
 ## Answer payload
+
+This is what the company receives when a candidate applies. You don't need to produce it; use it to understand what the company needs from each answer.
 
 The example mixes questions from several jobs to show every value shape.
 
