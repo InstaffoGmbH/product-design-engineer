@@ -19,45 +19,7 @@ Pick a color by what it means, not by how it looks.
 
 ### Tokens
 
-```css
-:root {
-  --primary-400: #431d60; /* hover on primary actions */
-  --primary-300: #5e2f82; /* primary actions, links */
-  --primary-200: #8951b5; /* press ring */
-  --primary-100: #e2bdff;
-  --primary-50: #faf3ff; /* hover on ghost and secondary actions */
-
-  --brand-200: #e7ffc0; /* pale green accent */
-  --brand-100: #e6e0ff; /* lavender accent */
-
-  --neutrals-400: #3e4242;
-  --neutrals-300: #7a7c84;
-  --neutrals-200: #d3d4d6; /* default borders and dividers */
-  --neutrals-100: #f5f5f7; /* page background */
-  --neutrals-0: #ffffff; /* surfaces */
-
-  --text-300: #222222;
-  --text-200: #3e4242; /* default text */
-  --text-100: #7a7c84; /* placeholder, disabled */
-  --text-0: #ffffff; /* text on colored fills */
-
-  --danger-300: #991219;
-  --danger-200: #ed1c27;
-  --danger-100: #ffe8e9;
-
-  --success-300: #145931;
-  --success-200: #219653;
-  --success-100: #dcf8db;
-
-  --warning-300: #664d00;
-  --warning-200: #ffc000;
-  --warning-100: #fff5cd;
-
-  --utility-300: #662a0e;
-  --utility-200: #ff6922;
-  --utility-100: #ffc4a8;
-}
-```
+All values are in [`tokens.css`](./tokens.css). Import it or copy the values into your stack.
 
 ### Rules
 
@@ -164,8 +126,10 @@ No springs, bounces, `scale()` on hover or elaborate enter and exit animations.
 **Font.** Our brand font is Aeonik Pro. Its licence doesn't let us share it, so use [Manrope](https://fonts.google.com/specimen/Manrope) instead (free, SIL Open Font License). It's close to Aeonik in width and shape.
 
 ```css
-font-family: "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif;
-letter-spacing: 0.25px;
+font-family: var(
+  --font-family
+); /* "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif */
+letter-spacing: var(--letter-spacing);
 color: var(--text-200);
 ```
 

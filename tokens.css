@@ -1,0 +1,94 @@
+/* Instaffo design tokens (simplified). 1rem = 10px. See FOUNDATIONS.md for when to use which. */
+
+:root {
+  font-size: 62.5%; /* 1rem = 10px */
+
+  /* Color: primary (brand purple, interactive only) */
+  --primary-50: #faf3ff; /* hover on ghost and secondary actions */
+  --primary-100: #e2bdff;
+  --primary-200: #8951b5; /* press ring */
+  --primary-300: #5e2f82; /* primary actions, links */
+  --primary-400: #431d60; /* hover on primary actions */
+
+  /* Color: brand (decorative pastels) */
+  --brand-100: #e6e0ff; /* lavender */
+  --brand-200: #e7ffc0; /* pale green, positive contexts only */
+
+  /* Color: neutrals (backgrounds, surfaces, borders, icon fills) */
+  --neutrals-0: #fff; /* surfaces */
+  --neutrals-100: #f5f5f7; /* page background */
+  --neutrals-200: #d3d4d6; /* default borders and dividers */
+  --neutrals-300: #7a7c84;
+  --neutrals-400: #3e4242;
+
+  /* Color: text */
+  --text-0: #fff; /* text on colored fills */
+  --text-100: #7a7c84; /* placeholder, disabled */
+  --text-200: #3e4242; /* default text */
+  --text-300: #222222;
+
+  /* Color: signals */
+  --success-100: #dcf8db;
+  --success-200: #219653;
+  --success-300: #145931;
+  --warning-100: #fff5cd;
+  --warning-200: #ffc000;
+  --warning-300: #664d00;
+  --danger-100: #ffe8e9;
+  --danger-200: #ed1c27;
+  --danger-300: #991219;
+  --utility-100: #ffc4a8; /* reserved for system-level signals */
+  --utility-200: #ff6922;
+  --utility-300: #662a0e;
+
+  /* Spacing */
+  --space-2: 0.2rem;
+  --space-4: 0.4rem;
+  --space-8: 0.8rem;
+  --space-12: 1.2rem;
+  --space-16: 1.6rem;
+  --space-24: 2.4rem;
+  --space-32: 3.2rem;
+  --space-40: 4rem;
+  --space-48: 4.8rem;
+  --space-56: 5.6rem;
+  --space-64: 6.4rem;
+
+  /* Radii */
+  --radius-checkbox: 0.4rem;
+  --radius-interactive: 0.8rem;
+  --radius-badge: 1.2rem;
+  --radius-container: 2rem;
+  --radius-pill: 9999px;
+
+  /* Borders */
+  --border-default: 0.1rem;
+  --border-button: 0.2rem;
+  --border-error: 0.15rem;
+
+  /* Shadows (warm, never cool) */
+  --shadow-panel: 1.5rem 1.5rem 4rem 0 rgba(199, 195, 195, 0.4);
+  --shadow-filter: 0 0.4rem 1rem rgba(122, 124, 132, 0.3);
+  --shadow-toggle: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
+
+  /* Typography */
+  --font-family: "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 500; /* "bold" is medium by convention */
+  --letter-spacing: 0.025rem;
+  --text-display-l: 500 4rem / 4.8rem var(--font-family);
+  --text-display-m: 500 3.2rem / 4rem var(--font-family);
+  --text-title-l: 500 2.4rem / 3.2rem var(--font-family);
+  --text-title-m: 500 2rem / 2.8rem var(--font-family);
+  --text-body-l: 500 1.8rem / 2.4rem var(--font-family);
+  --text-body-m: 400 1.6rem / 2.4rem var(--font-family);
+  --text-body-base: 400 1.4rem / 2rem var(--font-family);
+  --text-body-s: 500 1.2rem / 1.6rem var(--font-family);
+
+  /* Motion */
+  --transition-button: all 0.3s ease;
+  --transition-chip: all 0.2s ease;
+
+  /* States */
+  --opacity-disabled: 0.6;
+}

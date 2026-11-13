@@ -9,7 +9,7 @@ Everything here is sample data, not real Instaffo data.
 | `README.md`                                          | This file: question schema, answer format, screening rules              |
 | `profile.json`                                       | What Instaffo already knows about the candidate                         |
 | `jobs/short.json`, `jobs/long.json`, `jobs/bad.json` | Three job configs                                                       |
-| `DESIGN.md`, `FOUNDATIONS.md`                        | Our design foundations: voice and tone, tokens. Start with `DESIGN.md`. |
+| `DESIGN.md`, `FOUNDATIONS.md`, `tokens.css`          | Our design foundations: voice and tone, tokens. Start with `DESIGN.md`. |
 | `data/`                                              | Sample analytics and feedback from a similar flow                       |
 
 ## Job config

@@ -7,6 +7,7 @@ We don't ship our component library with this repo. Use any stack you like. Take
 | File                                 | Read it before…                                                                                   |
 | :----------------------------------- | :------------------------------------------------------------------------------------------------ |
 | [`FOUNDATIONS.md`](./FOUNDATIONS.md) | Picking a color, a spacing value, a corner radius, a text style, an icon, a hover or focus state. |
+| [`tokens.css`](./tokens.css)         | The token values as CSS custom properties.                                                        |
 | This file                            | Writing any text the candidate sees.                                                              |
 
 ## Who you design for
